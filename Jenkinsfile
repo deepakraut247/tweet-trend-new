@@ -1,17 +1,16 @@
 pipeline {
     agent any
 
+    environment{
+        PATH = "/etc/maven/apache-maven-3.9.4/bin:$PATH"
+    }
+
     stages {
-        stage('Hello') {
-            steps {
-                echo 'Hello World'
-            }
+    stage('build') {
+        steps{
+            sh 'mvn clean deploy'
         }
-        
-    stage('clone repo') {
-            steps {
-                git branch: 'main', url: 'https://github.com/deepakraut247/tweet-trend.git'
-            }
+            
         }
     }
 }
