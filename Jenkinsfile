@@ -12,7 +12,7 @@ pipeline {
     stages {
     stage('build') {
         steps{
-            sh 'mvn clean deploy'
+            sh 'mvn clean deploy -Dv=${BUILD_NUMBER}'
         }
             
         }
